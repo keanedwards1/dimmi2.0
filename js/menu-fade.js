@@ -1,4 +1,4 @@
-window.addEventListener('scroll', function() {
+/* window.addEventListener('scroll', function() {
     const instatooltip = document.getElementById('comp-tooltip');
     const contacttooltip = document.getElementById('upvote-tooltip');
     const abouttooltip = document.getElementById('journal-tooltip');
@@ -18,4 +18,4 @@ window.addEventListener('scroll', function() {
   });
 
 
-  
+   */

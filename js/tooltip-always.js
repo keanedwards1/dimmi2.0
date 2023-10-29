@@ -1,4 +1,4 @@
-const learn = document.getElementById('learn');
+/* const learn = document.getElementById('learn');
 const learnTooltip = document.querySelector('#learn-tooltip');
 
 // Learn tooltip always shown
@@ -20,7 +20,7 @@ const comp = document.getElementById('comp');
 const compTooltip = document.querySelector('#comp-tooltip');
 
 // Comp tooltip always shown
-compTooltip.style.display = 'block';
+compTooltip.style.display = 'block'; */
 
 /* Need to figure out where toggleInfoButton was declared and then see 
    what relationship that div has to the infoTooltip and then copy that for
