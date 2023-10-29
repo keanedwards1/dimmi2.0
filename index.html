@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" href="/images/dimmi.png">
   <title>Dimmi Handmade</title>
 </head>
+
 <body>
 
   <header>
@@ -17,39 +19,39 @@
       <!-- logo -->
       <div id="title-logo">
         <div id="logo" style="display: inline-block; vertical-align: middle;">
-          <a id="logo-click" href="index.html">
+          <a id="logo-click" href="contact.html">
             <img id="logo-img" src="images/dimmi.png" width="60">
           </a>
         </div>
         <!-- home button -->
         <h2 id="title" class="title" style="display: inline-block;
         vertical-align: middle;">
-        <span style="cursor: pointer;" onclick="window.location.href=
-        'about.html'">Dimmi Handmade</span>
+          <span style="cursor: pointer;" onclick="window.location.href=
+        'index.html'">Dimmi Handmade</span>
         </h2>
       </div>
 
       <!-- page selection -->
       <div id="menu-bar">
         <!-- <a id="logo-click" class="menu-bar-buttons" href="settings.html">
-          <img src="images/gear-inverted.png" alt="settings" id="settings">
-          <span class="menu-tooltips" id="settings-tooltip">settings</span>
-        </a> -->
-        <a id="logo-click" class="menu-bar-buttons" href="about.html">
-          <img src="images/journal.png" alt="journal" id="journal">
-          <span class="menu-tooltips" id="journal-tooltip">About Dimmi</span>
+            <img src="images/gear-inverted.png" alt="settings" id="settings">
+            <span class="menu-tooltips" id="settings-tooltip">settings</span>
+          </a> -->
+        <a id="learn-container" class="menu-bar-buttons  logo-click" href="index.html">
+          <img src="images/learn-day.png" alt="learn" id="learn" />
+          <span class="menu-tooltips" id="learn-tooltip">Jewelry & Art</span>
         </a>
-        <a id="logo-click" class="menu-bar-buttons" href="contact.html">
-          <img src="images/contact-day.svg" alt="upvote" id="upvote">
+        <a id="journal-container" class="menu-bar-buttons logo-click" href="about.html">
+          <img src="images/journal.png" alt="journal" id="journal" />
+          <span class="menu-tooltips" id="journal-tooltip">About</span>
+        </a>
+        <a id="upvote-container" class="menu-bar-buttons logo-click" href="contact.html">
+          <img src="images/contact-day.svg" alt="upvote" id="upvote" />
           <span class="menu-tooltips" id="upvote-tooltip">Contact Us</span>
         </a>
-        <a id="logo-click" class="menu-bar-buttons" target="_blank" href="https://www.instagram.com/dimmi_handmade/">
-          <img src="images/comp-day.svg" alt="comp" id="comp">
-          <span class="menu-tooltips" id="comp-tooltip">Dimmi's Instagram</span>
-        </a>
-        <a id="logo-click" class="menu-bar-buttons" href="index.html">
-          <img src="images/learn-day.png" alt="learn" id="learn">
-          <span class="menu-tooltips" id="learn-tooltip">Dimmi's Jewelry & Art</span>
+        <a id="comp-container" class="menu-bar-buttons logo-click" target="_blank" href="https://www.instagram.com/dimmi_handmade/">
+          <img src="images/comp-day.svg" alt="comp" id="comp" />
+          <span class="menu-tooltips" id="comp-tooltip">Instagram ↗</span>
         </a>
       </div>
 
@@ -69,71 +71,68 @@
             </div>
           </div>
         </div> -->
-        <a id="infoButton">
+        <!--         <a id="infoButton">
           <img src="images/info.png" alt="info" id="info-image">
           <span class="tooltip5">cmnd + i</span>
-          <!-- <button id="showRectButton" class="popup-button">info</button> -->
-        </a>
+           <button id="showRectButton" class="popup-button">info</button>
+        </a> -->
       </div>
     </div>
   </header>
 
   <main>
-      <div class="grid">
-        <a class="grid-item" id="grid1" href="items/item1.html">
-            <img src="images/gallery/1.jpg" alt="Image 1">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid2" href="items/item2.html">
-            <img src="images/gallery/2.jpg" alt="Image 2">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid3" href="items/item3.html">
-            <img src="images/gallery/3.jpg" alt="Image 3">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid4" href="items/item4.html">
-            <img src="images/gallery/4.jpg" alt="Image 4">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid5" href="items/item5.html">
-            <img src="images/gallery/5.jpg" alt="Image 5">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid6" href="items/item6.html">
-            <img src="images/gallery/6.jpg" alt="Image 6">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid7" href="items/item7.html">
-            <img src="images/gallery/7.jpg" alt="Image 7">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid8" href="items/item8.html">
-            <img src="images/gallery/8.jpg" alt="Image 8">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid9" href="items/item9.html">
-            <img src="images/gallery/9.jpg" alt="Image 9">
-            <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid10" href="items/item10.html">
-          <img src="images/gallery/10.jpg" alt="Image 10">
-          <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid11" href="items/item11.html">
-          <img src="images/gallery/11.jpg" alt="Image 11">
-          <div class="item-name">Things & Stuff</div>
-        </a>
-        <a class="grid-item" id="grid12" href="items/item12.html">
-          <img src="images/gallery/12.jpg" alt="Image 12">
-          <div class="item-name">Things & Stuff</div>
-        </a>
-      </div>
+
+    <div id="work-bar">
+      <div id="jewelry" class="work-category">JEWELRY</div>
+      <div id="crochet" class="work-category">CROCHET</div>
+    </div>
+
+    <div class="grid">
+      <a class="grid-item" id="grid1"> <!-- href="items/item1.html" -->
+        <img src="items/jewelry/1.jpg" alt="Image 1">
+      </a>
+      <a class="grid-item" id="grid2" > <!-- href="items/item2.html" -->
+        <img src="items/jewelry/2.jpg" alt="Image 2">
+      </a>
+      <a class="grid-item" id="grid3" > <!-- href="items/item3.html" -->
+        <img src="items/jewelry/3.jpg" alt="Image 3">
+      </a>
+      <a class="grid-item" id="grid4" > <!-- href="items/item4.html" -->
+        <img src="items/jewelry/4.jpg" alt="Image 4">
+      </a>
+      <a class="grid-item" id="grid5" > <!-- href="items/item5.html" -->
+        <img src="items/jewelry/5.jpg" alt="Image 5">
+      </a>
+      <a class="grid-item" id="grid6" > <!-- href="items/item6.html" -->
+        <img src="items/jewelry/6.jpg" alt="Image 6">
+      </a>
+      <a class="grid-item" id="grid7" > <!-- href="items/item7.html" -->
+        <img src="items/jewelry/7.jpg" alt="Image 7">
+      </a>
+      <a class="grid-item" id="grid8" > <!-- href="items/item8.html" -->
+        <img src="items/jewelry/8.jpg" alt="Image 8">
+      </a>
+      <a class="grid-item" id="grid9" > <!-- href="items/item9.html" -->
+        <img src="items/jewelry/9.jpg" alt="Image 9">
+      </a>
+      <a class="grid-item" id="grid10" > <!-- href="items/item10.html" -->
+        <img src="items/jewelry/10.jpg" alt="Image 10">
+      </a>
+      <a class="grid-item" id="grid11" > <!-- href="items/item11.html" -->
+        <img src="items/jewelry/11.jpg" alt="Image 11">
+      </a>
+      <a class="grid-item" id="grid12" > <!-- href="items/item12.html" -->
+        <img src="items/jewelry/12.jpg" alt="Image 12">
+      </a>
+    </div>
     <!-- for the popup -->
     <div id="bottom-bar">
-      <a id="logo-click" class="menu-bar-buttons" target="_blank" href="https://drawing.garden/">
-        <img src="images/live-day.png" alt="live" id="live">
+      <a id="bears" target="_blank" href="https://drawing.garden/">
+        <img src="images/bears-day.png" alt="live" id="live">
       </a>
+      <button class="custom-button bottom-bar-custom-button"
+        onclick="window.open('https://us9.list-manage.com/contact-form?u=9598889f9a43720b03b41b830&form_id=382b332dedbb6cc324e526c41542cb5b', '_blank')">Contact
+        Us :)</button>
     </div>
 
     <!-- this is the popup that pops up when the user presses cmd + i -->
@@ -149,15 +148,20 @@
           </h3>
         </div>
 
-            <!-- TODO: add this -->
+        <!-- TODO: add this -->
 
 
-        <button class="custom-button" onclick="window.open('https://us9.list-manage.com/contact-form?u=9598889f9a43720b03b41b830&form_id=382b332dedbb6cc324e526c41542cb5b', '_blank')">Contact Us</button>
+        <button class="custom-button" id="contact-page-contact-button"
+          onclick="window.open('https://us9.list-manage.com/contact-form?u=9598889f9a43720b03b41b830&form_id=382b332dedbb6cc324e526c41542cb5b', '_blank')">Contact
+          Us 👆</button>
       </div>
     </div>
   </main>
   <script defer src="js/toggleTheme.js"></script>
-  <script defer src="js/tooltip.js"></script>
+  <script defer src="js/tooltip-always.js"></script>
   <script defer src="js/popup.js"></script>
+  <script defer src="js/menu-fade.js"></script>
+  <script defer src="js/replace-jewelry.js"></script>
 </body>
+
 </html>

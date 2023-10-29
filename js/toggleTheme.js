@@ -4,8 +4,8 @@ const body = document.body;
 const fightImage = document.getElementById('comp');
 const upvoteImage = document.getElementById('upvote');
 const profileImage = document.getElementById('profile-photo');
-const toggleInfoButton = document.getElementById('info-image');
-const toggleJournal = document.getElementById('journal');
+/* const toggleInfoButton = document.getElementById('info-image');
+ */const toggleJournal = document.getElementById('journal');
 const resultRectangley = document.getElementById("result-rectangle");
 const learnImage = document.getElementById('learn');
 const liveImage = document.getElementById('live');
@@ -14,7 +14,8 @@ const aboutImage = document.getElementById('about-image');
 const bottomBar = document.getElementById('bottom-bar');
 const itemName = document.getElementsByClassName('item-name');
 const topBar = document.getElementById('home');
-
+const jewelry = document.getElementById('jewelry');
+const crochet = document.getElementById('crochet');
 // Function to set the logo image based on the theme 
 function setLogoImage(isDarkMode) {
   if(isDarkMode) {
@@ -45,9 +46,9 @@ function setLearnImage(isDarkMode) {
 // Function to set the live image based on the theme
 function setLiveImage(isDarkMode) {
   if (isDarkMode) {
-    liveImage.src = '/images/live-night.png';
+    liveImage.src = '/images/bears-night.png';
   } else {
-    liveImage.src = '/images/live-day.png';
+    liveImage.src = '/images/bears-day.png';
   }
 }
 
@@ -71,19 +72,18 @@ function setJournalImage(isDarkMode) {
 }
 
 // Function to set the Info Button style
-function setInfoButton(isDarkMode) {
+/* function setInfoButton(isDarkMode) {
   if (isDarkMode) {
     toggleInfoButton.src = '/images/info-night.png';
   } else {
     toggleInfoButton.src = '/images/info.png';
   }
-}
+} */
 
 // function to set the bottom bar color
 function setBottomBarColor(isDarkMode) {
   if (isDarkMode) {
     bottomBar.style.backgroundColor = '#1f2531';
-/*     bottomBar.style.backgroundImage = 'url(images/tangerine.jpeg)'; */
   } else {
     bottomBar.style.backgroundColor = '#d9edf9';
   }
@@ -93,11 +93,11 @@ function setBottomBarColor(isDarkMode) {
 function setTopBarColor(isDarkMode) {
   if (isDarkMode) {
     topBar.style.backgroundColor = '#1f2531';
-/*     bottomBar.style.backgroundImage = 'url(images/tangerine.jpeg)'; */
   } else {
     topBar.style.backgroundColor = '#d9edf9';
   }
 }
+
 
 // Function to set the Gallery Nav Bar Text Color
 
@@ -137,6 +137,8 @@ const isDarkMode = localStorage.getItem('isDarkMode') === 'true';
 // Set the initial theme and images based on local storage of user
 if (isDarkMode) {
   body.classList.add('dark-theme');
+  jewelry.classList.add('dark-theme');
+  crochet.classList.add('dark-theme');
   themeImage.src = '/images/moon.svg';
   themeImage.alt = 'Moon';
   setCompImage(true);
@@ -145,8 +147,8 @@ if (isDarkMode) {
   setLearnImage(true);
   setLiveImage(true);
   setLogoImage(true);
-  setInfoButton(true);
-  setBottomBarColor(true);
+/*   setInfoButton(true);
+ */  setBottomBarColor(true);
   setTopBarColor(true);
   setNavBarTextColor(true);
 
@@ -162,6 +164,8 @@ if (isDarkMode) {
   }
 } else {
   body.classList.add('light-theme');
+  jewelry.classList.add('light-theme');
+  crochet.classList.add('light-theme');
   themeImage.src = '/images/sun.svg';
   themeImage.alt = 'toggle to night';
   setCompImage(false);
@@ -170,8 +174,8 @@ if (isDarkMode) {
   setLearnImage(false);
   setLiveImage(false);
   setLogoImage(false);
-  setInfoButton(false);
-  setBottomBarColor(false);
+/*   setInfoButton(false);
+ */  setBottomBarColor(false);
   setTopBarColor(false);
   setNavBarTextColor(false);
 }
@@ -180,6 +184,10 @@ function toggleThemeAndImages() {
   if (body.classList.contains('light-theme')) {
     body.classList.remove('light-theme');
     body.classList.add('dark-theme');
+    jewelry.classList.remove('light-theme');
+    jewelry.classList.add('dark-theme');
+    crochet.classList.remove('light-theme');
+    crochet.classList.add('dark-theme');
     localStorage.setItem('isDarkMode', 'true');
     themeImage.src = '/images/moon.svg';
     themeImage.alt = 'Moon';
@@ -189,13 +197,17 @@ function toggleThemeAndImages() {
     setLearnImage(true);
     setLiveImage(true);
     setLogoImage(true);
-    setInfoButton(true);
-    setBottomBarColor(true);
+/*     setInfoButton(true);
+ */    setBottomBarColor(true);
     setTopBarColor(true);
     setNavBarTextColor(true);
   } else {
     body.classList.remove('dark-theme');
     body.classList.add('light-theme');
+    jewelry.classList.remove('dark-theme');
+    jewelry.classList.add('light-theme');
+    crochet.classList.remove('dark-theme');
+    crochet.classList.add('light-theme');
     localStorage.setItem('isDarkMode', 'false');
     themeImage.src = '/images/sun.svg';
     themeImage.alt = 'Sun';
@@ -205,8 +217,8 @@ function toggleThemeAndImages() {
     setLearnImage(false);
     setLiveImage(false);
     setLogoImage(false);
-    setInfoButton(false);
-    setBottomBarColor(false);
+/*     setInfoButton(false);
+ */    setBottomBarColor(false);
     setTopBarColor(false);
     setNavBarTextColor(false);
   }

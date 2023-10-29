@@ -1,7 +1,7 @@
 const rectangleContainer = document.getElementById('rectangleContainer');
 const closeButton = document.getElementById('closeButton');
-const infoButton = document.getElementById('info-image');
-const toggleThemeButton = document.getElementById('theme-image');
+/* const infoButton = document.getElementById('info-image');
+ */const toggleThemeButton = document.getElementById('theme-image');
 const profilePhotoy = document.getElementById('profile-photo');
 const logoImagey = document.getElementById('logo'); /* This didn't work, for some reason when the 
 website goes to a new tab, the popup dissapears anyways */
@@ -24,8 +24,8 @@ const toggleRectangleVisibility = () => {
   isRectangleVisible = !isRectangleVisible; // Toggle the visibility
 };
 
-infoButton.addEventListener('click', toggleRectangleVisibility);
-
+/* infoButton.addEventListener('click', toggleRectangleVisibility);
+ */
 closeButton.addEventListener('click', (event) => {
   rectangleContainer.style.right = '-320px'; // Hide the rectangle
   isRectangleVisible = false; // Update the visibility state
@@ -40,7 +40,7 @@ document.addEventListener('keydown', (event) => {
 
 document.addEventListener("click", (event) => {
   const target = event.target;
-  if (isRectangleVisible && target !== rectangleContainer && !rectangleContainer.contains(target) && target !== infoButton && target !== toggleThemeButton && target !== profilePhotoy && target !== logoImagey) {
+  if (isRectangleVisible && target !== rectangleContainer && !rectangleContainer.contains(target) /* && target !== infoButton */ && target !== toggleThemeButton && target !== profilePhotoy && target !== logoImagey) {
     toggleRectangleVisibility(); }
 });
 
@@ -96,4 +96,7 @@ if (currentPage === 'index.html') {
       }
     });
   }
+
+
+
 

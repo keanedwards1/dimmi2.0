@@ -20,6 +20,9 @@ learn.addEventListener("mousemove", function(event) {
   learnTooltip.style.left = x - 49 + "px";
 });
 
+learnTooltip.style.display = 'block';
+
+
 
 const journal = document.getElementById('journal');
 const journalTooltip = document.querySelector('#journal-tooltip');
@@ -30,6 +33,8 @@ journal.addEventListener("mousemove", function(event) {
   journalTooltip.style.top = y + 39 + "px";
   journalTooltip.style.left = x - 36 + "px";
 });
+
+journalTooltip.style.display = 'block';
 
 
 const upvote = document.getElementById('upvote');
@@ -42,6 +47,8 @@ upvote.addEventListener("mousemove", function(event) {
   upvoteTooltip.style.left = x - 27 + "px";
 });
 
+upvoteTooltip.style.display = 'block';
+
 
 const comp = document.getElementById('comp');
 const compTooltip = document.querySelector('#comp-tooltip');
@@ -52,6 +59,9 @@ comp.addEventListener("mousemove", function(event) {
   compTooltip.style.top = y + 39 + "px";
   compTooltip.style.left = x - 42 + "px";
 });
+
+compTooltip.style.display = 'block';
+
 
 /* need to figure out where toggleInfoButton was declared and then see 
 what relationship that div has to the infoTooltip and then copy that for
@@ -66,6 +76,9 @@ toggleInfoButton.addEventListener("mousemove", function(event) {
   infoTooltip.style.top = y - 30 + "px";
   infoTooltip.style.left = x - 30 + "px";
 });
+
+infoTooltip.style.display = 'block';
+
 
 
 /* index.html tooltips */

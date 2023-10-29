@@ -1,7 +1,13 @@
+@font-face {
+  font-family: 'SpicyRice-Regular';
+  src: url('fonts/SpicyRice-Regular.woff') format('woff');
+}
+
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Lucida Handwriting', cursive;
+  font-family: 'SpicyRice-Regular', sans-serif;
+  letter-spacing: 0.5px;
 }
 
 .hide-on-load {
@@ -30,7 +36,7 @@ body.dark-theme {
 }
 
 body.light-theme {
-  background-color: #e8f6ff;
+  background-color: #dee6ec; /*c5d2da*/
   color: #1a1919;
 }
 
@@ -92,8 +98,10 @@ header.dark-theme {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #dfe3ed;
+  background-color: #fff8ea; /* dfe3ed */ /* this color is set in toggleTheme.js line 93 - 98 */ 
 }
+
+
 
 /*
 .shrink {
@@ -113,7 +121,7 @@ this background as text colors */
   margin-right: 43px;
   width: 120px;
   text-align: center;
-  font-family: 'Lucida Handwriting', cursive;
+  font-family: 'roboto slab';
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   flex-shrink: 1;
@@ -136,14 +144,37 @@ this background as text colors */
 #menu-bar {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-top: 40px;
+  gap: 90px;
+  margin-top: -0px;
+  --dark-tooltip-background: #1f2531;
+  --dark-tooltip-color: rgb(25, 25, 25);
+}
+
+#learn-container {
+  margin-top: 11px;
+}
+
+#journal-container {
+  margin-top: 5px;
+}
+
+#comp-container {
+  margin-top: 0px;
 }
 
 .menu-bar-buttons {
   margin: 0 10px;
   box-sizing: border-box;
   margin-left: 10px;
+}
+
+.menu-bar-buttons img {
+  padding-bottom: 20px;
+}
+
+.menu-tooltips {
+  margin-top: -20px;
+  color: #b1b1b1;
 }
 
 /* took this out because I ran into error when
@@ -161,25 +192,14 @@ trying to query the divs to animate the tooltips */
 
 /* begin heading tooltip styling section */
 
-#settings {
-  margin: auto;
-  width: 30px;
+.menu-bar-buttons:hover img {
+  transform: scale(1.1); 
 }
 
-#settings-tooltip {
-  position: fixed;
-  display: none;
-  background-color: #000;
-  color: #fff;
-  padding: 5px;
-  border-radius: 5px;
-  font-size: 12px;
-  z-index: 999;
-  border: 1px solid #ccc;
-}
-
-#settings:hover+#settings-tooltip {
-  display: flex;
+.menu-bar-buttons:hover .menu-tooltips {
+  display: block;
+  background-color: #a5deff;
+  color: rgb(0, 0, 0);
 }
 
 #learn {
@@ -189,17 +209,18 @@ trying to query the divs to animate the tooltips */
 #learn-tooltip {
   position: fixed;
   display: none;
-  background-color: #000;
-  color: #fff;
-  padding: 5px;
+  padding: 5px 25px 5px 27px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 10px;
   z-index: 999;
-  border: 1px solid #ccc;
+/*   border: 1px solid #ccc;
+ */  margin-left: -38px;
+  transition: background-color 0.2s ease, opacity 0.1s ease;
 }
 
-#learn:hover+#learn-tooltip {
-  display: flex;
+#learn-tooltip.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 #journal {
@@ -209,13 +230,26 @@ trying to query the divs to animate the tooltips */
 #journal-tooltip {
   position: fixed;
   display: none;
-  background-color: #000;
-  color: #fff;
-  padding: 5px;
+  padding: 5px 44px 5px 41px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 10px;
   z-index: 999;
-  border: 1px solid #ccc;
+/*   border: 1px solid #ccc;
+ */  margin-left: -37px;
+  transition: background-color 0.2s ease, opacity 0.1s ease;
+}
+
+#journal-tooltip.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#journal-tooltip.light-theme {
+
+}
+
+#journal-tooltip.dark-theme {
+
 }
 
 #journal:hover+#journal-tooltip {
@@ -224,43 +258,48 @@ trying to query the divs to animate the tooltips */
 
 #upvote {
   width: 30px;
+  margin-top: 5px;
 }
 
 #upvote-tooltip {
   position: fixed;
   display: none;
-  background-color: #000;
-  color: #fff;
-  padding: 5px;
+  padding: 5px 25px 5px 25px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 10px;
   z-index: 999;
-  border: 1px solid #ccc;
+/*   border: 1px solid #ccc;
+ */  margin-left: -35px;
+  transition: background-color 0.2s ease, opacity 0.1s ease;
 }
 
-#upvote:hover+#upvote-tooltip {
-  display: flex;
+#upvote-tooltip.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
 
 #comp {
   width: 30px;
+  margin-top: 5px;
 }
 
 #comp-tooltip {
   position: fixed;
   display: none;
-  background-color: #000;
-  color: #fff;
-  padding: 5px;
+  padding: 5px 25px 5px 25px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 10px;
   z-index: 999;
-  border: 1px solid #ccc;
+/*   border: 1px solid #ccc;
+ */  margin-left: -35px;
+  transition: background-color 0.2s ease, opacity 0.1s ease;
 }
 
-#comp:hover+#comp-tooltip {
-  display: flex;
+#comp-tooltip.fade-out {
+  opacity: 0;
+  pointer-events: none;
 }
+
 
 /* end header tooltip styling section */
 
@@ -272,7 +311,6 @@ trying to query the divs to animate the tooltips */
   /* Horizontally center the images */
   align-items: center;
   /* Vertically center the images */
-  margin-top: 38px;
 }
 
 #theme-toggle-div,
@@ -291,8 +329,9 @@ trying to query the divs to animate the tooltips */
 }
 
 #theme-image {
-  width: 35px;
-  margin-top: 7px;
+  width: 55px;
+  margin-top: -20px;
+  margin-left: 90px;
   height: auto;
   cursor: pointer;
   max-width: 100%;
@@ -319,7 +358,7 @@ trying to query the divs to animate the tooltips */
   position: absolute;
 }
 
-@keyframes grow {
+/* @keyframes grow {
   0% {
     transform: translate(-50%, -50%) scale(1);
   }
@@ -335,9 +374,9 @@ trying to query the divs to animate the tooltips */
   100% {
     transform: translate(-50%, -50%) scale(1);
   }
-}
+} */
 
-#dropdown-items.dark-theme {
+/* #dropdown-items.dark-theme {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #dee0ee;
@@ -370,16 +409,32 @@ trying to query the divs to animate the tooltips */
 .dropdown-item {
   text-align: center;
   cursor: pointer;
-}
+} */
 
 /* end of header css */
 
 /* beginning of poem div */
 #products-wrapper {
   height: 600px;
+  flex-direction: column;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#send-dimmi-message {
+  margin-bottom: 80px;
+}
+
+#send-dimmi-message .custom-button {
+  background-color: #e1eff7;
+  color: #000
+}
+
+#send-dimmi-message .custom-button:hover {
+  background-color: #a2cee8;
+  color: #fff;
+  transform: scale(1.1);
 }
 
 /* body.dark-theme #title {
@@ -397,21 +452,39 @@ body.dark-theme #poem-input::-moz-placeholder {
 body.dark-theme #poem-input:-ms-input-placeholder {
   color: #566b8e;
 } */
+#top-bar, #bottom-bar {
+}
 
 #bottom-bar {
-  background-color: #dfe3ed;
-  padding-top: 90px;
+  background-color: #eaf5ff; /* dfe3ed */
+  padding-top: 20px;
   margin-top: 40px;
   padding-bottom: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: auto;
   width: 100%;
+  transition: 0.2s ease;
 }
 
 #bottom-bar div {
   flex: 1;
+}
+
+#bears {
+  margin-top: 30px;
+}
+
+.bottom-bar-custom-button {
+  margin-left: -110px;
+  margin-bottom: 60px;
+}
+
+.bottom-bar-custom-button,
+.logo-click {
+  display: block; /* Display elements as block-level elements */
 }
 
 #live {
@@ -588,27 +661,32 @@ body.dark-theme #poem-input:-ms-input-placeholder {
 }
 
 .custom-button {
-  font-family: 'Lucida Handwriting', cursive;
-  background-color: #252f3f;
-  color: #d4daea;
-  transform: translate(50%, 50%);
-  transition: 0.2s ease-in-out;
+  background-color: #dfd7c3;
+  color: #4a3d2a;
+  transition: 0.2s ease;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 18px;
+  margin-left: 0px;
+  margin-top: 40px;
 }
 
 .custom-button:hover {
-  background-color: #e8f6ff;
-  color: #374260;
+  background-color: #83c9f4;
+  color: #eff7fc;
+  transform: scale(1.05);
+}
+
+#contact-page-custom-button {
+  margin-left: 18px;
+  width: 600px;
 }
 
 .custom-button:active {
-  background-color: #e8f6ff;
-  color: #374260;
+  background-color: #83c9f4;
+  color: #eff7fc;
 }
 
 #popup-writing {
@@ -669,24 +747,16 @@ h2 {
 #new-prompt-button,
 #poem-of-the-day-button,
 #new-poem-button,
-#submit-img,
-#info-image {
+#submit-img, #bears {
   transition: transform 0.2s ease;
 }
 
-#new-prompt-button:hover,
-#poem-of-the-day-button:hover,
-#new-poem-button:hover,
-#submit-img:hover,
-#info-image:hover {
-  transform: scale(0.9);
-}
 
 #logo:hover,
 #title:hover,
 #theme-image:hover,
-#profile-photo:hover,
-.menu-bar-buttons img:hover {
+/* .menu-bar-buttons img:hover, */ 
+#bears:hover {
   transform: scale(1.1);
 }
 
@@ -718,7 +788,7 @@ h2 {
 
 .button {
   clear: both;
-  background-color: #aaa;
+  background-color: #464646;
   border: 0 none;
   border-radius: 10px;
   transition: all 0.23s ease-in-out 0s;
@@ -804,7 +874,7 @@ The higher the alpha value, the more opaque the shadow appears. */
   margin-bottom: 10px;
   /* Adjust the spacing below the header */
   margin-top: -5px;
-  font-family: 'Lucida Handwriting', cursive;
+  font-family: 'roboto slab';
   font-weight: bold;
 
 }
@@ -820,6 +890,53 @@ The higher the alpha value, the more opaque the shadow appears. */
 .text-container p {
   margin-bottom: 8px;
   /* Adjust the spacing between paragraphs */
+}
+
+#work-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -40px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+@media (min-width: 950px) {
+  #work-bar {
+      margin-left: 400px;
+  }
+}
+
+#jewelry {
+  margin: 0 10px;
+}
+
+#crochet {
+  margin: 0 10px;
+}
+
+.work-category.light-theme {
+  color: rgb(139, 137, 137);
+}
+
+.work-category:hover.light-theme {
+  color: rgb(48, 48, 48);
+}
+
+.work-category.active.light-theme {
+  color: rgb(48, 48, 48);
+}
+
+
+.work-category.dark-theme {
+  color: rgb(122, 122, 122);
+}
+
+.work-category:hover.dark-theme {
+  color: rgb(234, 234, 234);
+}
+
+.work-category.active.dark-theme {
+  color: rgb(235, 235, 235);
 }
 
 /*----------------------------------------------------------------
@@ -839,21 +956,24 @@ The higher the alpha value, the more opaque the shadow appears. */
 
 .grid-item {
   text-align: center;
-  transition: opacity 0.2s ease-in-out;
   text-decoration: none !important;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease;
+  font-size: 13px;
 }
+
 
 .grid-item:hover {
   opacity: 70%;
   color: #6381e5;
   color: #1C274C;
+  transform: scale(1.017);
 }
 
 .grid-item img {
   width: 100%;
   height: auto;
-  cursor: pointer;
-  border-radius: 10px;
+/*   cursor: pointer;
+ */  border-radius: 10px;
   box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.5);
 
 }
@@ -987,76 +1107,6 @@ The higher the alpha value, the more opaque the shadow appears. */
   border-radius: 10px;
 }
 
-/* @media */
-
-@media (min-width: 950px) {
-
-  #work-bar {
-    margin-left: 400px;
-  }
-
-  #photo-item-page {
-    margin-right: 80px;
-    margin-left: 80px;
-  }
-
-  #header {
-    margin-left: 30px;
-    margin-right: 30px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-    padding-left: 75px;
-    padding-right: 55px;
-  }
-}
-
-@media (max-width: 1250px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 930px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-    padding-left: 75px;
-    padding-right: 55px;
-  }
-}
-
-@media (max-width: 800px) {
-  .grid-item-page {
-    margin-right: 30px;
-    margin-left: 30px;
-  }
-}
-
-@media (max-width: 650px) {
-  #header {
-    margin-left: 30px;
-    margin-right: 15px;
-  }
-
-  #nav-bar {
-    margin-top: 20px;
-    margin-left: 80px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    padding-left: 65px;
-    padding-right: 65px;
-  }
-
-  .grid-item-page {
-    display: flow-root;
-    margin-right: 40px;
-    margin-left: 40px;
-  }
-}
-
 /* ----------- all the pages where the things are ----*/
 
 .photo-item {
@@ -1090,33 +1140,80 @@ The higher the alpha value, the more opaque the shadow appears. */
   margin-top: 80px;
 }
 
-@media (max-width: 800px) {
-  .description {
-    padding-left: 5px;
-    padding-right: 5px;
+/* @media */
+
+@media (min-width: 930px) {
+
+  #work-bar {
+    margin-left: 400px;
+  }
+
+  #photo-item-page {
+    margin-right: 80px;
+    margin-left: 80px;
+  }
+
+  #header {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    padding-left: 75px;
+    padding-right: 55px;
   }
 }
 
-@media (max-width: 600px) {
-  .description {
-    padding-left: 1px;
-    padding-right: 1px;
+@media (max-width: 1250px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #menu-bar{
+    gap: 90px;
+  }
+  #theme-image {
+    margin-left: 80px;
   }
 }
 
-@media (max-width: 400px) {
-  .description {
-    padding-left: 0px;
-    padding-right: 0px;
+@media (max-width: 1100px) {
+  #menu-bar {
+    gap: 40px;
+  }
+  #learn-tooltip {
+    transform: scale(0.8);
+  }
+  #journal-tooltip {
+    transform: scale(0.8);
+  }
+
+  #upvote-tooltip {
+    transform: scale(0.8);
+  }
+
+  #comp-tooltip {
+    transform: scale(0.8);
   }
 }
-
-/* -------------------------------- */
 
 @media (max-width: 930px) {
 
+  .logo-click:hover img {
+    transform: scale(0.8); 
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 75px;
+    padding-right: 55px;
+  }
+  #theme-image {
+    margin-left: 40px;
+  }
+
   #menu-bar {
-    gap: 0px;
+    gap: 30px;
   }
 
   .menu-bar-buttons {
@@ -1124,9 +1221,8 @@ The higher the alpha value, the more opaque the shadow appears. */
   }
 
   #title-logo {
-    margin-top: -5px;
+    margin-top: -60px;
   }
-
 
   #logo {
     transform: scale(0.8);
@@ -1148,51 +1244,10 @@ The higher the alpha value, the more opaque the shadow appears. */
     transform: scale(0.8);
   }
 
-  #upvote {
+  .menu-bar-buttons img {
     transform: scale(0.8);
   }
-
-  #upvote:hover {
-    transform: scale(0.9);
-  }
-
-  #comp {
-    transform: scale(0.8);
-  }
-
-  #comp:hover {
-    transform: scale(0.9);
-  }
-
-  #learn {
-    transform: scale(0.8);
-  }
-
-  #learn:hover {
-    transform: scale(0.9);
-  }
-
-  #live {
-    transform: scale(0.8);
-  }
-
-  #live:hover {
-    transform: scale(0.9);
-  }
-
-  #settings {
-    transform: scale(0.8);
-  }
-
-  #settings:hover {
-    transform: scale(0.9);
-  }
-
-  #journal {
-    transform: scale(0.8);
-  }
-
-  #journal:hover {
+  .menu-bar-buttons:hover img {
     transform: scale(0.9);
   }
 
@@ -1231,15 +1286,59 @@ The higher the alpha value, the more opaque the shadow appears. */
     transform: scale(0.8);
   }
 
+  .menu-bar-buttons:hover img {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 800px) {
+  .grid-item-page {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+  .description {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+@media (max-width: 650px) {
+  #header {
+    margin-left: 30px;
+    margin-right: 15px;
+  }
+
+  #nav-bar {
+    margin-top: 20px;
+    margin-left: 80px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    padding-left: 65px;
+    padding-right: 65px;
+  }
+
+  .grid-item-page {
+    display: flow-root;
+    margin-right: 40px;
+    margin-left: 40px;
+  }
 }
 
 @media (max-width: 682px) {
+
+  #upvote-containter {
+    margin-top: -40px !important;
+  }
+
   .menu-bar-buttons {
     margin: 6px;
   }
 
   #title-logo {
-    margin-top: -5px;
+    margin-top: -60px;
   }
 
   #logo {
@@ -1252,7 +1351,8 @@ The higher the alpha value, the more opaque the shadow appears. */
   }
 
   #menu-bar {
-    margin-left: 10px;
+    margin-right: -40px;
+    gap: 10px;
   }
 
   #pref {
@@ -1263,31 +1363,18 @@ The higher the alpha value, the more opaque the shadow appears. */
     padding: 0;
   }
 
+  #theme-image {
+    margin-left: 10px;
+  }
+
   #profile-div {
     margin-left: -10px;
   }
 
-  #upvote {
+  .menu-bar-buttons img {
     transform: scale(0.7);
   }
-
-  #upvote:hover {
-    transform: scale(0.8);
-  }
-
-  #comp {
-    transform: scale(0.7);
-  }
-
-  #comp:hover {
-    transform: scale(0.8);
-  }
-
-  #learn {
-    transform: scale(0.7);
-  }
-
-  #learn:hover {
+  .menu-bar-buttons:hover img {
     transform: scale(0.8);
   }
 
@@ -1307,13 +1394,6 @@ The higher the alpha value, the more opaque the shadow appears. */
     transform: scale(0.8);
   }
 
-  #journal {
-    transform: scale(0.7);
-  }
-
-  #journal:hover {
-    transform: scale(0.8);
-  }
   
   .container {
     padding: 40px;
@@ -1335,5 +1415,41 @@ The higher the alpha value, the more opaque the shadow appears. */
     padding-left: 0px;
     transform: scale(0.6);
     margin-left: -20px;
+  }
+
+  #learn-tooltip {
+    transform: scale(0.6);
+    padding: 5px 20px 5px 22px;
+    margin-left: -32px;
+  }
+  #journal-tooltip {
+    transform: scale(0.6);
+    padding: 5px 34px 5px 31px;
+    margin-left: -28px;
+  }
+
+  #upvote-tooltip {
+    transform: scale(0.6);
+    padding: 5px 25px 5px 25px;
+  }
+
+  #comp-tooltip {
+    transform: scale(0.6);
+    padding: 5px 20px 5px 20px;
+    margin-left: -29px;
+  }
+}
+
+@media (max-width: 600px) {
+  .description {
+    padding-left: 1px;
+    padding-right: 1px;
+  }
+}
+
+@media (max-width: 400px) {
+  .description {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
